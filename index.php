@@ -542,7 +542,7 @@ class КЛАСС_ПЛАГИНА extends Plugin
 	{
 	    $userid = $this->input->post('user');
 	    $onesignalid = $this->input->post('onesignalid');
-	    $url = "https://onesignal.com/api/v1/players/".$onesignalid."?app_id=d7fe1738-3cdf-48d0-b81a-328588faad62";
+	    $url = "https://onesignal.com/api/v1/players/".$onesignalid."?app_id=ИДЕНТИФИКАТОР_ПРИЛОЖЕНИЯ_В_УАНСИГНАЛ";
         $send = json_encode($sdata);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
