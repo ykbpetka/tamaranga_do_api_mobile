@@ -21,6 +21,18 @@ Request Params
 | pass | YES | STRING |
 
 В ответ вы получите uid пользователя, если авторизация успешна, либо ошибку.
+```JSON
+{
+    "data": {
+        "success": true,
+        "status": 2,
+        "uid": 30,
+        "redirect": "ГЛАВНАЯ СТРАНИЦА ПРОЕКТА",
+        "fields": []
+    },
+    "errors": []
+}
+```
 
 ## Получение информации о пользователе
 GET /api/userinfo?userid=:uid
