@@ -601,6 +601,7 @@ Request Params
 | userid | YES | INT |
 
 В ответ вернется JSON с информацией
+```JSON
 {
    "data":[
       {
@@ -615,7 +616,6 @@ Request Params
          "term":"1",
          "arbitrage":"0",
          "extra":[
-            
          ],
          "keyword":"vlazhnaja-uborka",
          "title":"Тут заголовок заявки",
@@ -665,7 +665,6 @@ Request Params
          "term":"1",
          "arbitrage":"0",
          "extra":[
-            
          ],
          "keyword":"vlazhnaja-uborka12",
          "title":"Тут заголовок заявки",
@@ -710,4 +709,179 @@ Request Params
 }
 ```
 набор полей в JSON зависит от ваших доработок на системе, не все поля, приведенные в примере могут быть у вас.
+
+## Получение детальной информации по воркфлоу
+GET /api/wfinfo?wfid=:wfid
+
+Request Params	
+| Param Name | Required | Type |
+|----------------|-----------|-----------------|
+| wfid | YES | INT |
+
+В ответ вернется JSON с информацией
+```JSON
+{
+   "data":{
+      "id":"16",
+      "order_id":"19",
+      "client_id":"16",
+      "worker_id":"30",
+      "offer_id":"12",
+      "fairplay":"1",
+      "status":"9",
+      "status_prev":"14",
+      "arbitrage":"0",
+      "created":"2021-11-26 10:45:44",
+      "modified":"2021-11-26 10:52:50",
+      "reserved":"2021-11-26 10:46:03",
+      "price":"180.00",
+      "commission":"0.00",
+      "term":"1",
+      "client_opinion":"0",
+      "worker_opinion":"0",
+      "client_expert_id":"0",
+      "worker_expert_id":"0",
+      "extra":null
+   },
+   "errors":[
+      
+   ]
+}
+```
+набор полей в JSON зависит от ваших доработок на системе, не все поля, приведенные в примере могут быть у вас.
+
+## Начало работ по воркфлоу
+POST /api/wfst
+
+Request Params	
+| Param Name | Required | Type |
+|----------------|-----------|-----------------|
+| wfid | YES | INT |
+| lat | NO | INT |
+| long | NO | INT |
+
+параметры latitude и longitude являются необязательными, в нашем проекте была привязка к месту выполнения заданий, поэтому мы исппользовали данные параметры. 
+
+## Выполнение работ по воркфлоу
+POST /api/wfsw
+
+Request Params	
+| Param Name | Required | Type | Comment |
+|----------------|-----------|-----------------|-----------|
+| stw | YES | INT | Просто шлем 1, не помню зачем параметр нужен )))) |
+| sid | YES | INT | Идентификатор воркфлоу |
+| act | YES | STRING | Этап выполнения работ (варианты: send1, send2, send3, send4 - конец работы и отправка на оценку) |
+| name | YES | STRING | Название отправляемого файла |
+| file | YES | STRING | Файл изображения в base64 |
+| typehome | YES | STRING | Тип дома (1 или 2) |
+
+## Принятие оценки исполнителем за выполненную работу
+POST /api/wfse
+
+Request Params	
+| Param Name | Required | Type | Comment |
+|----------------|-----------|-----------------|-----------|
+| sid | YES | INT | Идентификатор воркфлоу |
+| total_price | YES | FLOAT | Итоговая стоимость работы |
+| total_grade | YES | FLOAT | Итоговая оценка работы |
+
+## Баланс пользователя в системе
+GET /api/userbalance?userid=:userid
+
+Request Params	
+| Param Name | Required | Type | Comment |
+|----------------|-----------|-----------------|-----------|
+| userid | YES | INT | Идентификатор пользователя |
+
+В ответ вернется JSON с информацией
+```JSON
+{
+   "data":{
+      "balance":"-2616.45"
+   },
+   "errors":[
+      
+   ]
+}
+```
+
+## Список всех счетов (пополнения / списания) пользователя
+GET /api/userbills?userid=:uuserid
+
+Request Params	
+| Param Name | Required | Type | Comment |
+|----------------|-----------|-----------------|-----------|
+| userid | YES | INT | Идентификатор пользователя |
+
+В ответ вернется JSON с информацией
+```JSON
+{
+   "data":[
+      {
+         "id":"29",
+         "user_id":"30",
+         "user_balance":"3.55",
+         "svc_id":"0",
+         "svc_activate":"0",
+         "svc_settings":"a:0:{}",
+         "item_id":"0",
+         "type":"5",
+         "psystem":"0",
+         "psystem_way":null,
+         "psystem_tid":null,
+         "amount":"5390",
+         "money":"5390",
+         "currency_id":"0",
+         "created":"2021-11-26 10:53:26",
+         "payed":"0000-00-00 00:00:00",
+         "status":"1",
+         "description":"Вывод средств со счета в системе на банковский счет",
+         "details":null,
+         "ip":"IP пользователя",
+         "invoice":"ССЫЛКА НА СЧЕТ В PDF",
+         "akt":"",
+         "created_date":"2021-11-26"
+      },
+      {
+         "id":"1",
+         "user_id":"30",
+         "user_balance":"909.59",
+         "svc_id":"0",
+         "svc_activate":"0",
+         "svc_settings":"",
+         "item_id":"0",
+         "type":"2",
+         "psystem":"0",
+         "psystem_way":null,
+         "psystem_tid":null,
+         "amount":"89.8575",
+         "money":"0",
+         "currency_id":"2",
+         "created":"2021-10-13 18:00:28",
+         "payed":"2021-10-13 18:00:28",
+         "status":"2",
+         "description":"Выплата за выполнение работы по заявке \"Влажная уборка в подъезде №2 дома по Ленина ул., д. 1\"",
+         "details":null,
+         "ip":"",
+         "invoice":"",
+         "akt":"",
+         "created_date":"2021-10-13"
+      }
+   ],
+   "errors":[
+      
+   ]
+}
+```
+формат JSON, а также типы счетов зависят от добработок вашей системы
+
+## Сохранение чека от самозанятого за выполненную работу
+POST /api/savecheck
+
+Request Params	
+| Param Name | Required | Type | Comment |
+|----------------|-----------|-----------------|-----------|
+| invid | YES | INT | Номер счета |
+| name | YES | INT | Имя файла |
+| file | YES | INT | Изображение чека в формате base64 |
 
