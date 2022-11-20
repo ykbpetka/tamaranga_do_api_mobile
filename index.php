@@ -1,13 +1,13 @@
 <?php
 
-class Plugin_Plugin_api_zhkh_p2a38cf extends Plugin
+class КЛАСС_ПЛАГИНА extends Plugin
 {
     public function init()
     {
         parent::init();
 
         $this->setSettings(array(
-            'extension_id'   => 'p2a38cf857b8f1383bfeed589257e4fa82459b20',
+            'extension_id'   => 'ИДЕНТИФИКАТОР РАСШИРЕНИЯ СГЕНЕРИРОВАННЫЙ TAMARANGA FL',
             'plugin_title'   => 'API',
             'plugin_version' => '1.0.0',
         ));
@@ -274,36 +274,6 @@ class Plugin_Plugin_api_zhkh_p2a38cf extends Plugin
                     array_push($ImageDataSet, $ec);
                 }
             }
-            //отправляем данные в ЖКХ 2.0
-            $meth = "TMG_AfterRequestExecuteEnd";
-            $postfields = array(
-                'method' => $meth,
-                'RequestID' => $RequestID,
-                'EntNum' => $EntNum,
-                'ExecutingDateStart' => $ExecutingDateStart,
-                'ExecutingTimeStart' => $ExecutingTimeStart,
-                'ExecutingDateEnd' => $ExecutingDateEnd,
-                'ExecutingTimeEnd' => $ExecutingTimeEnd,
-                'ExecutingEndLong' => $ExecutingEndLong,
-                'ExecutingEndLat' => $ExecutingEndLat,
-                'ImageDataSet' => $ImageDataSet
-            );
-            $orinf = json_encode($postfields);
-            //$ersfile = $uploaddir . 'answer.txt';
-            //$fp = fopen($ersfile, "w+");
-	        //fwrite($fp, $orinf);
-	        //fclose($fp);
-            $url = "https://study.my-dom.pro/v8_nn_zhkh20_study/hs/api/v1/TMG_AfterRequestExecuteEnd/";
-            $curld = curl_init();
-            curl_setopt($curld, CURLOPT_USERPWD, "ServiceUser1C:0000");
-            curl_setopt($curld, CURLOPT_POST, true);
-            curl_setopt($curld, CURLOPT_POSTFIELDS, $orinf);
-            curl_setopt($curld, CURLOPT_URL,$url);
-            curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
-            $output = curl_exec($curld);
-            curl_close ($curld);
-            $this->log('Передача данных в ЖКХ 2.0 после вызова метода WorkflowSaveWork из приложения: '.$orinf, Logger::INFO);
-            $this->log('Ответ из ЖКХ 2.0 после вызова метода WorkflowSaveWork из приложения: '.$output, Logger::INFO);
             $response = true;
             $this->ajaxResponse($response);
         }
@@ -393,30 +363,6 @@ class Plugin_Plugin_api_zhkh_p2a38cf extends Plugin
 	$this->db->insert('bff_fairplay_workflows_chat', ['type'=>3, 'workflow_id'=>$sid, 'author_id'=>$datarr1['worker_id'], 'created'=>$this->db->now()]);
 	#логируем и возвращаем результат
 	$this->log('Вызов метода WorkflowSaveEvaluation из приложения: '.$sid, Logger::INFO);
-	#отправка данных в ЖКХ 2.0
-    $RequestID = $this->db->one_data('SELECT a.requestid FROM bff_orders a LEFT JOIN bff_fairplay_workflows b ON b.order_id = a.id WHERE b.id = :id', [':id'=>$sid]);
-    $meth = "TMG_AfterRequestClose";
-    $postfields = array(
-        'method' => $meth,
-        'RequestID' => $RequestID,
-        'CloseType' => 1
-    );
-    $orinf = json_encode($postfields);
-    //$ersfile = $uploaddir . 'answer.txt';
-    //$fp = fopen($ersfile, "w+");
-    //fwrite($fp, $orinf);
-    //fclose($fp);
-    $url = "https://study.my-dom.pro/v8_nn_zhkh20_study/hs/api/v1/TMG_AfterRequestClose";
-    $curld = curl_init();
-    curl_setopt($curld, CURLOPT_USERPWD, "ServiceUser1C:0000");
-    curl_setopt($curld, CURLOPT_POST, true);
-    curl_setopt($curld, CURLOPT_POSTFIELDS, $orinf);
-    curl_setopt($curld, CURLOPT_URL,$url);
-    curl_setopt($curld, CURLOPT_RETURNTRANSFER, true);
-    $output = curl_exec($curld);
-    curl_close ($curld);
-    $this->log('Передача данных в ЖКХ 2.0 после вызова метода WorkflowSaveEvaluation из приложения: '.$orinf, Logger::INFO);
-    $this->log('Ответ из ЖКХ 2.0 после вызова метода WorkflowSaveEvaluation из приложения: '.$output, Logger::INFO);
 	$response = true;
 	$this->ajaxResponse($response);
     }
