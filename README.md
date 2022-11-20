@@ -897,3 +897,5 @@ Request Params
 | name | YES | INT | Имя файла |
 | file | YES | INT | Изображение чека в формате base64 |
 
+# DEMO-работы мобилльного приложения в связке с данным API
+https://disk.yandex.ru/d/UhS0FnvheUzBvA
