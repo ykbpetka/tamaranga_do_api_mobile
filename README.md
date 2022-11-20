@@ -573,7 +573,7 @@ Request Params
 4 - пользователю предлагают стать исполнителем
 6 ИЛИ 7 - пользователь отказался
 
-## Проверка кто выбран исполнителем по заказу
+## Получение идентификатора воркфлоу, если пользователь выбран исполнителем
 GET /api/mwbo?type=1&orderid=:orderid
 
 Request Params	
@@ -590,4 +590,124 @@ Request Params
    ]
 }
 ```
-В параметре data возвращается 
+В параметре data возвращается индентификатор воркфлоу
+
+## Просмотр списка воркфлоу пользователя
+GET /api/wflist?userid=:userid
+
+Request Params	
+| Param Name | Required | Type |
+|----------------|-----------|-----------------|
+| userid | YES | INT |
+
+В ответ вернется JSON с информацией
+{
+   "data":[
+      {
+         "id":"1",
+         "status":"11",
+         "client_id":"16",
+         "worker_id":"30",
+         "fairplay":"1",
+         "client_opinion":"16",
+         "worker_opinion":"0",
+         "price":"225.21",
+         "term":"1",
+         "arbitrage":"0",
+         "extra":[
+            
+         ],
+         "keyword":"vlazhnaja-uborka",
+         "title":"Тут заголовок заявки",
+         "visibility":"0",
+         "addr_lat":"56.300411",
+         "addr_lng":"43.938412",
+         "startdate":"2021-10-25",
+         "requestid":"14bace18-2eaa-11ec-80eb-005056934f19",
+         "uk_id":"0",
+         "buildtype":"1",
+         "entnum":"2",
+         "entryconditiondesc":"Здесь отображаются параметры",
+         "instrandmaterialdesc":"Здесь будет отображаться перечень материалов",
+         "prt2":"225",
+         "terms_to":"09-10",
+         "addr_addr":"Ленина ул., д. 1",
+         "type_title":"Влажная уборка",
+         "type_id":"4",
+         "cnt_new":"0",
+         "client":{
+            "user_id":"ID заказчика",
+            "name":"имя заказчика",
+            "surname":"фамилия заказчика",
+            "login":"логин заказчика",
+            "pro":"0",
+            "verified":"0"
+         },
+         "worker":{
+            "user_id":"ID исполнителя",
+            "name":"имя исполнителя",
+            "surname":"фамилия исполнителя",
+            "login":"логин исполнителя",
+            "pro":"0",
+            "verified":"0"
+         },
+         "client_opinion_type":"3"
+      },
+      {
+         "id":"3",
+         "status":"4",
+         "client_id":"16",
+         "worker_id":"30",
+         "fairplay":"1",
+         "client_opinion":"17",
+         "worker_opinion":"0",
+         "price":"180.00",
+         "term":"1",
+         "arbitrage":"0",
+         "extra":[
+            
+         ],
+         "keyword":"vlazhnaja-uborka12",
+         "title":"Тут заголовок заявки",
+         "visibility":"0",
+         "addr_lat":"56.300411",
+         "addr_lng":"43.938412",
+         "startdate":"2021-10-28",
+         "requestid":"ca024b66-08b6-11ec-b53e-9453303dad71",
+         "uk_id":"0",
+         "buildtype":"1",
+         "entnum":"2",
+         "entryconditiondesc":"Здесь отображаются параметры",
+         "instrandmaterialdesc":"Здесь будет отображаться перечень материалов",
+         "prt2":"180",
+         "terms_to":"11-12",
+         "addr_addr":"Ленина ул., д. 12",
+         "type_title":"Влажная уборка",
+         "type_id":"4",
+         "cnt_new":"0",
+         "client":{
+            "user_id":"ID заказчика",
+            "name":"имя заказчика",
+            "surname":"фамилия заказчика",
+            "login":"логин заказчика",
+            "pro":"0",
+            "verified":"0"
+         },
+         "worker":{
+            "user_id":"ID исполнителя",
+            "name":"имя исполнителя",
+            "surname":"фамилия исполнителя",
+            "login":"логин исполнителя",
+            "pro":"0",
+            "verified":"0"
+         },
+         "client_opinion_type":"3"
+      }
+   ],
+   "errors":[
+      
+   ]
+}
+```
+набор полей в JSON зависит от ваших доработок на системе, не все поля, приведенные в примере могут быть у вас.
+
