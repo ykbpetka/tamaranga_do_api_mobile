@@ -224,9 +224,9 @@ Request Params
       "user_created":"2021-05-13 13:03:00",
       "opinions_cache":"0;0;0",
       "contacts":"a:1:{i:0;a:2:{s:1:\"t\";i:1;s:1:\"v\";s:11:\"8800*******\";}}",
-      "name":"Мой дом",
-      "surname":"АО",
-      "login":"kushikovps",
+      "name":"ИМЯ ЗАКАЗЧИКА",
+      "surname":"ФАМИЛЛИЯ ЗАКАЗЧИКА",
+      "login":"ЛОГИ ЗАКАЗЧИКА",
       "avatar":"",
       "verified":"0",
       "sex":"1",
@@ -344,3 +344,250 @@ Request Params
     "errors": []
 }
 ```
+
+## Получение списка заказов на которые откликался пользователь
+GET /api/listmyorders?st=2&userid=:userid
+
+Request Params	
+| Param Name | Required | Type |
+|----------------|-----------|-----------------|
+| userid | YES | INT |
+
+В ответ вернется JSON с информацией
+```JSON
+{
+   "data":[
+      {
+         "id":"3",
+         "type":"1",
+         "service_type":"2",
+         "status":"4",
+         "title":"Тут заголовок заявки",
+         "descr":"Тут описание требований по выполнению работ",
+         "keyword":"vlazhnaja-uborka",
+         "pro":"0",
+         "fairplay":"1",
+         "created":"2021-10-25 11:42:28",
+         "offers_cnt":"2",
+         "price":"200",
+         "price_curr":"2",
+         "price_ex":"0",
+         "price_rate_text":"",
+         "order_user_id":"16",
+         "visibility":"0",
+         "tags":null,
+         "reg3_city":"3227",
+         "startdate":"2021-09-28",
+         "starttime":"23:23:23",
+         "requestid":"ca024b66-08b6-11ec-b53e-9453303dad70",
+         "uk_id":"0",
+         "buildtype":"1",
+         "entnum":"2",
+         "entryconditiondesc":"Здесь отображаются параметры ",
+         "instrandmaterialdesc":"Здесь будет отображаться перечень материалов",
+         "addr_addr":"Ленина ул., д. 1",
+         "type_title":"Влажная уборка",
+         "type_id":"4",
+         "offer_id":"6",
+         "offer_status":"0",
+         "user_id":"30",
+         "chatcnt":"0",
+         "user_removed":"0",
+         "chat_new_worker":"0",
+         "city_data":{
+            "id":"3227",
+            "country":"1000",
+            "pid":"1046",
+            "title_ru":"Нижний Новгород",
+            "title_en":"",
+            "title_uk":"Нижний Новгород",
+            "title_alt":"GOJ,Gor'kij,Gor'kiy,Gorkey,Gorki,Gorkii,Gorky,Nijni Novgorod,Nijnii Novgorod,Nischni Nowgorod,Nishni-Nowgorod,Nishnii Nowgorod,Nishnij Nowgorod,Nizhni Novgorod,Nizhnii Novgorod,Nizhnij Novgorod,Nizhniy Novgorod,Nizhny Novgorod,Nizjnij Novgorod,Niznij Nowgorod,Nižnij Nowgorod,Горький,Нижний Новгород",
+            "declension":"Нижний Новгород",
+            "keyword":"nizhnij-novgorod",
+            "ycoords":"56.3269,44.0060",
+            "enabled":"1",
+            "metro":"1",
+            "numlevel":"3",
+            "num":"135",
+            "main":"26",
+            "geo_id":"1956",
+            "country_code":"",
+            "phone_code":"",
+            "filter_noregions":"0",
+            "pkey":"nizhegorodskaja-oblast",
+            "title":"Нижний Новгород"
+         }
+      },
+      {
+         "id":"11",
+         "type":"1",
+         "service_type":"2",
+         "status":"4",
+         "title":"Тут заголовок заявки",
+         "descr":"Тут описание требований по выполнению работ",
+         "keyword":"vlazhnaja-uborka2",
+         "pro":"0",
+         "fairplay":"1",
+         "created":"2021-11-15 12:30:55",
+         "offers_cnt":"2",
+         "price":"200",
+         "price_curr":"2",
+         "price_ex":"0",
+         "price_rate_text":"",
+         "order_user_id":"16",
+         "visibility":"0",
+         "tags":null,
+         "reg3_city":"3515",
+         "startdate":"2021-09-03",
+         "starttime":"00:00:00",
+         "requestid":"6095ed80-0b49-11ec-b53e-9453303rad71",
+         "uk_id":"5836683623",
+         "buildtype":"1",
+         "entnum":"1",
+         "entryconditiondesc":"Здесь отображаются параметры",
+         "instrandmaterialdesc":"Здесь будет отображаться перечень материалов",
+         "addr_addr":"Медицинская ул., д. 2",
+         "type_title":"Влажная уборка",
+         "type_id":"4",
+         "offer_id":"7",
+         "offer_status":"0",
+         "user_id":"30",
+         "chatcnt":"0",
+         "user_removed":"0",
+         "chat_new_worker":"0",
+         "city_data":{
+            "id":"3515",
+            "country":"1000",
+            "pid":"1052",
+            "title_ru":"Пенза",
+            "title_en":"",
+            "title_uk":"Пенза",
+            "title_alt":"Penza,Penzovskiy,Пенза",
+            "declension":"Пенза",
+            "keyword":"penza",
+            "ycoords":"",
+            "enabled":"1",
+            "metro":"0",
+            "numlevel":"3",
+            "num":"97",
+            "main":"72",
+            "geo_id":"2211",
+            "country_code":"",
+            "phone_code":"",
+            "filter_noregions":"0",
+            "pkey":"penzenskaja-oblast",
+            "title":"Пенза"
+         }
+      },
+      {
+         "id":"12",
+         "type":"1",
+         "service_type":"2",
+         "status":"4",
+         "title":"Тут заголовок заявки",
+         "descr":"Тут описание требований по выполнению работ",
+         "keyword":"vlazhnaja-uborka3",
+         "pro":"0",
+         "fairplay":"1",
+         "created":"2021-11-16 13:36:17",
+         "offers_cnt":"1",
+         "price":"200",
+         "price_curr":"2",
+         "price_ex":"0",
+         "price_rate_text":"",
+         "order_user_id":"16",
+         "visibility":"0",
+         "tags":null,
+         "reg3_city":"3515",
+         "startdate":"2021-09-03",
+         "starttime":"00:00:00",
+         "requestid":"6095ed80-0b49-11ec-b53e-9453303rad71",
+         "uk_id":"5836683623",
+         "buildtype":"1",
+         "entnum":"1",
+         "entryconditiondesc":"Здесь отображаются параметры",
+         "instrandmaterialdesc":"Здесь будет отображаться перечень материалов",
+         "addr_addr":"Медицинская ул., д. 2",
+         "type_title":"Влажная уборка",
+         "type_id":"4",
+         "offer_id":"9",
+         "offer_status":"0",
+         "user_id":"30",
+         "chatcnt":"0",
+         "user_removed":"0",
+         "chat_new_worker":"0",
+         "city_data":{
+            "id":"3515",
+            "country":"1000",
+            "pid":"1052",
+            "title_ru":"Пенза",
+            "title_en":"",
+            "title_uk":"Пенза",
+            "title_alt":"Penza,Penzovskiy,Пенза",
+            "declension":"Пенза",
+            "keyword":"penza",
+            "ycoords":"",
+            "enabled":"1",
+            "metro":"0",
+            "numlevel":"3",
+            "num":"97",
+            "main":"72",
+            "geo_id":"2211",
+            "country_code":"",
+            "phone_code":"",
+            "filter_noregions":"0",
+            "pkey":"penzenskaja-oblast",
+            "title":"Пенза"
+         }
+      }
+   ],
+   "errors":[
+      
+   ]
+}
+```
+набор полей в JSON зависит от ваших доработок на системе, не все поля, приведенные в примере могут быть у вас.
+
+## Проверка статуса отклика на заказ
+GET /api/mwbo?type=2&orderid=:orderid&userid=userid
+
+Request Params	
+| Param Name | Required | Type |
+|----------------|-----------|-----------------|
+| userid | YES | INT |
+| orderid | YES | INT |
+
+В ответ вернется JSON с информацией
+```JSON
+{
+   "data":"0",
+   "errors":[
+      
+   ]
+}
+```
+Возможные значения в data:
+1 ИЛИ 5 - пользователь выбран исполнителем
+2 - пользователь кандидат
+3 - пользователю отказали
+4 - пользователю предлагают стать исполнителем
+6 ИЛИ 7 - пользователь отказался
+
+## Проверка кто выбран исполнителем по заказу
+GET /api/mwbo?type=1&orderid=:orderid
+
+Request Params	
+| Param Name | Required | Type |
+|----------------|-----------|-----------------|
+| orderid | YES | INT |
+
+В ответ вернется JSON с информацией
+```JSON
+{
+   "data":"16",
+   "errors":[
+      
+   ]
+}
+```
+В параметре data возвращается 
