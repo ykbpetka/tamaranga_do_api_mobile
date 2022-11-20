@@ -898,4 +898,5 @@ Request Params
 | file | YES | INT | Изображение чека в формате base64 |
 
 # DEMO-работы мобилльного приложения в связке с данным API
-https://disk.yandex.ru/d/UhS0FnvheUzBvA
+[![Watch the video]([https://i.imgur.com/vKb2F1B.png](https://i9.ytimg.com/vi/KTK32zGojOg/mq2.jpg?sqp=CNyp6ZsG-oaymwEmCMACELQB8quKqQMa8AEB-AHWAYAC4AOKAgwIABABGCcgZShIMA8=&rs=AOn4CLCcaCUfUykJWQUVKrB5zMB8qebuKA))](https://youtu.be/KTK32zGojOg)
+
