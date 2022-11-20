@@ -897,6 +897,6 @@ Request Params
 | name | YES | INT | Имя файла |
 | file | YES | INT | Изображение чека в формате base64 |
 
-# DEMO-работы мобилльного приложения в связке с данным API
-[![Watch the video]([https://i.imgur.com/vKb2F1B.png])](https://youtu.be/A7xKb4ZCAQk)
+# DEMO работы мобилльного приложения в связке с данным API
+[![Watch the video](https://img.youtube.com/vi/A7xKb4ZCAQk/hqdefault.jpg)](https://youtu.be/A7xKb4ZCAQk)
 
